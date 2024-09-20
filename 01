@@ -1,0 +1,22 @@
+problem statement:-  Reverse a Stack You are given a stack of integers. Your task is to reverse the order of the elements in the stack using only stack operations (push and pop) and without using any additional data structures. Ex. stack = [1, 2, 3, 4, 5] reverse Stack(stack) print(stack) Output should be [5, 4, 3, 2, 1
+
+def reverse_stack(stack):
+    if not stack:
+        return
+    temp = stack.pop()
+    reverse_stack(stack)
+    insert_at_bottom(stack, temp)
+
+def insert_at_bottom(stack, x):
+    if not stack:
+        stack.append(x)
+    else:
+        temp = stack.pop()
+        insert_at_bottom(stack, x)
+        stack.append(temp)
+
+# Example Usage
+stack = [1, 2, 3, 4, 5]
+print("Original Stack:", stack)
+reverse_stack(stack)
+print("Reversed Stack:", stack)
